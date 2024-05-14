@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flower Fall</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background-color:#f3d2f3;
+    }
+
+    .center-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .center-text {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .flower {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: transparent;
+        border: none;
+        pointer-events: none; /* Prevent flowers from being clicked */
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: fall linear;
+    }
+
+    @keyframes fall {
+        from {
+            top: -20px;
+        }
+        to {
+            top: 100%;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="container center-container">
+    <div class="text-center">
+        <h1 class="center-text mb-4" id="nameDisplay"></h1>
+        <button style="background-color: grey;" id="touchButton" class="btn btn-primary btn-lg">Touch Here!!!</button>
+    </div>
+</div>
+
+<script>
+    document.getElementById("touchButton").addEventListener("click", function() {
+        this.style.display = "none"; // Hide the button when clicked
+        displayText();
+        startFlowerFall();
+    });
+
+    function displayText() {
+        document.getElementById("nameDisplay").innerText = "Epdi iruku Lokiee !!!";
+    }
+
+    function startFlowerFall() {
+        setInterval(function() {
+            createFlower();
+        }, 200);
+    }
+
+    function createFlower() {
+        var flower = document.createElement("div");
+        flower.classList.add("flower");
+
+        // Change flower color to violet
+        flower.style.backgroundImage = "url('https://emojicdn.elk.sh/🌸')"; // Violet flower emoji
+
+        flower.style.left = Math.random() * window.innerWidth + "px";
+        document.body.appendChild(flower);
+
+        // Animate flower falling
+        var animationDuration = Math.random() * 5 + 3; // Random duration between 3 to 8 seconds
+        flower.style.animation = "fall " + animationDuration + "s linear";
+
+        // Remove flower element after animation ends
+        setTimeout(function() {
+            flower.remove();
+        }, animationDuration * 1000);
+    }
+</script>
+</body>
+</html>
