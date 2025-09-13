@@ -10,7 +10,9 @@
         height: 100%;
         margin: 0;
         overflow: hidden;
-        background-color:#f3d2f3;
+        /* background-color:#c1cfcf54; */
+        background: linear-gradient(to bottom, #c9e4c5, #f2e8f3);
+        
     }
 
     .center-container {
@@ -51,7 +53,7 @@
 <div class="container center-container">
     <div class="text-center">
         <h1 class="center-text mb-4" id="nameDisplay"></h1>
-        <button style="background-color: grey;" id="touchButton" class="btn btn-primary btn-lg">Idha Touch Pannu !!!!</button>
+        <button style="background-color: grey;" id="touchButton" class="btn btn-primary btn-lg">Touch Pannu Danya❤️</button>
     </div>
 </div>
 
@@ -63,7 +65,8 @@
     });
 
     function displayText() {
-        document.getElementById("nameDisplay").innerText = "Epdi iruku Lokiee !!!";
+        
+        document.getElementById("nameDisplay").innerText = "Danya ☔💚\nEllam sari agirum... seri ah thaan agum 🌈\nUnakku rain romba pidikum la... enjoy pannunga madam 🌧️💖\nIndha mazhaila rosemilk oda oru chill moment 🍶🩷\nProblems ah apram pathukalam 😌\nIppo calm ah, happy ah iru 🌿🫶✨🫂";
     }
 
     function startFlowerFall() {
@@ -73,24 +76,55 @@
     }
 
     function createFlower() {
-        var flower = document.createElement("div");
-        flower.classList.add("flower");
+    var flower = document.createElement("div");
+    flower.classList.add("flower");
 
-        // Change flower color to violet
-        flower.style.backgroundImage = "url('https://emojicdn.elk.sh/🌸')"; // Violet flower emoji
+    // List of emoji codes (you can customize this)
+    // const emojis = ["⛈️", "🌧️", "✨", "💖","💫"];
+    const emojis = [
+    "🌧️", "☔", "🌦️",  // Rain elements
+    "💧", "🫧",          // Water drops & bubbles
+    "🍃", "🌿", "🍀",     // Green/nature
+     // Soft love (rosemilk blush)
+     "🌧️","🌦️","💧","💧"   // Peaceful/caring
+];
 
-        flower.style.left = Math.random() * window.innerWidth + "px";
-        document.body.appendChild(flower);
+    // Pick a random emoji
+    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+    flower.style.backgroundImage = `url('https://emojicdn.elk.sh/${encodeURIComponent(randomEmoji)}')`;
 
-        // Animate flower falling
-        var animationDuration = Math.random() * 5 + 3; // Random duration between 3 to 8 seconds
-        flower.style.animation = "fall " + animationDuration + "s linear";
+    flower.style.left = Math.random() * window.innerWidth + "px";
+    document.body.appendChild(flower);
 
-        // Remove flower element after animation ends
-        setTimeout(function() {
-            flower.remove();
-        }, animationDuration * 1000);
-    }
+    // Animate flower falling
+    var animationDuration = Math.random() * 5 + 3; // Random duration between 3 to 8 seconds
+    flower.style.animation = "fall " + animationDuration + "s linear";
+
+    // Remove flower element after animation ends
+    setTimeout(function() {
+        flower.remove();
+    }, animationDuration * 1000);
+}
+
+    // function createFlower() {
+    //     var flower = document.createElement("div");
+    //     flower.classList.add("flower");
+
+    //     // Change flower color to violet
+    //     flower.style.backgroundImage = "url('https://emojicdn.elk.sh/🌧️')"; // Violet flower emoji
+
+    //     flower.style.left = Math.random() * window.innerWidth + "px";
+    //     document.body.appendChild(flower);
+
+    //     // Animate flower falling
+    //     var animationDuration = Math.random() * 5 + 3; // Random duration between 3 to 8 seconds
+    //     flower.style.animation = "fall " + animationDuration + "s linear";
+
+    //     // Remove flower element after animation ends
+    //     setTimeout(function() {
+    //         flower.remove();
+    //     }, animationDuration * 1000);
+    // }
 </script>
 </body>
 </html>
